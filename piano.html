@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lise au piano – Lise Chemla</title>
+<meta name="description" content="Lise au piano : écoute, vidéos et partitions.">
+<link rel="icon" href="assets/poster.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><a href="menu.html"><img src="assets/poster.png" alt=""><span>Menu</span></a></header>
+<main>
+<h1 class="word">Lise au piano</h1>
+<h2 style="margin-top:0">Écouter</h2>
+<div class="embeds">
+<iframe src="https://open.spotify.com/embed/album/7jm8Yw82QuRbYSZ93DFiKU" height="352" title="Album Spotify, premier" loading="lazy" allow="encrypted-media; clipboard-write; fullscreen"></iframe>
+<iframe src="https://open.spotify.com/embed/album/4DjhORlAifJ3IJLUAgg8xG" height="352" title="Album Spotify, second" loading="lazy" allow="encrypted-media; clipboard-write; fullscreen"></iframe>
+</div>
+<h2>Voir</h2>
+<div class="embeds">
+<iframe class="video" src="https://www.youtube-nocookie.com/embed/7qxYCpG8boc" title="Vidéo 1" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe><iframe class="video" src="https://www.youtube-nocookie.com/embed/ARK-8uccL9A" title="Vidéo 2" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe><iframe class="video" src="https://www.youtube-nocookie.com/embed/ofl7zCHlAs8" title="Vidéo 3" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+</div>
+<h2>Partitions</h2>
+<ul class="links" id="scores" hidden></ul>
+<p class="empty" id="scores-empty">Chargement des partitions…</p>
+<script>
+/* Liste automatiquement les fichiers déposés dans le dossier "partitions" du dépôt GitHub. */
+(function(){
+  var list=document.getElementById('scores'),empty=document.getElementById('scores-empty');
+  var repo=list.dataset.repo; // optionnel : data-repo="mysinglelise/mon-depot"
+  if(!repo){
+    var host=location.hostname,m=host.match(/^(.+)\.github\.io$/);
+    if(m){var seg=location.pathname.split('/')[1]||'';
+      repo=m[1]+'/'+((seg&&!/\.html?$/.test(seg))?seg:host);}
+  }
+  function nice(n){return n.replace(/\.[^.]+$/,'').replace(/[-_]+/g,' ').trim();}
+  function ext(n){var e=n.split('.').pop();return e.toUpperCase();}
+  function show(files){
+    files.sort(function(a,b){return a.name.localeCompare(b.name,'fr',{numeric:true});});
+    files.forEach(function(f){
+      var li=document.createElement('li'),a=document.createElement('a');
+      a.href=f.path.split('/').map(encodeURIComponent).join('/');a.target='_blank';a.rel='noopener';
+      a.innerHTML='<span class="t"></span><span class="h"></span>';
+      a.firstChild.textContent=nice(f.name);a.lastChild.textContent=ext(f.name);
+      li.appendChild(a);list.appendChild(li);
+    });
+    list.hidden=false;empty.hidden=true;
+  }
+  function fail(){empty.textContent='Les partitions arrivent bientôt.';}
+  if(!repo){fail();return;}
+  var dirs=['partitions','partition'],i=0;
+  (function next(){
+    if(i>=dirs.length){fail();return;}
+    fetch('https://api.github.com/repos/'+repo+'/contents/'+dirs[i++])
+      .then(function(r){if(!r.ok)throw 0;return r.json();})
+      .then(function(items){
+        var files=items.filter(function(x){return x.type==='file'&&!/^\./.test(x.name)&&!/\.(md|txt)$/i.test(x.name);});
+        if(files.length)show(files);else next();
+      }).catch(next);
+  })();
+})();
+</script>
+</main>
+</body>
+</html>
