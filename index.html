@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MY SINGLE LISE – Lise Chemla</title>
+<meta name="description" content="Lise Chemla : spectacles jeune public, chanson, piano et projets de code.">
+<link rel="icon" href="assets/poster.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="intro" href="menu.html" aria-label="Entrer sur le site">
+  <video id="v" src="assets/intro.mp4" poster="assets/poster.png" autoplay muted playsinline preload="auto"></video>
+  <span>Cliquer pour entrer</span>
+</a>
+<script>
+  var v=document.getElementById('v'),a=v.parentNode;
+  function ready(){a.classList.add('ready')}
+  v.addEventListener('ended',ready);setTimeout(ready,5500);
+</script>
+</body>
+</html>

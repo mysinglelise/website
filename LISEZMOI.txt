@@ -1,0 +1,6 @@
+Mettre le site en ligne (GitHub Pages) :
+1. Sur github.com, créer un nouveau dépôt (par ex. "mysinglelise.github.io" pour avoir l'adresse mysinglelise.github.io).
+2. "Add file" > "Upload files" : glisser TOUT le contenu de ce dossier (index.html, style.css, assets, partitions...), puis "Commit changes".
+3. Settings > Pages > Source : "Deploy from a branch", branche main, dossier "/ (root)". Attendre 1 à 2 minutes.
+
+Ajouter une partition : déposer le PDF dans le dossier partitions/, puis suivre le commentaire dans piano.html (section Partitions).
