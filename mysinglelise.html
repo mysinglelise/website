@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>My single lise – Lise Chemla</title>
+<meta name="description" content="My single lise : Lise Me Alone, nouvel EP électro-pop féministe. Bio, parcours, vidéos, contact.">
+<link rel="icon" href="assets/poster.png">
+<link rel="stylesheet" href="style.css">
+<style>
+/* Cette page a son propre style : tout est ici. */
+@font-face{font-family:Bricolage;src:url(assets/fonts/bricolage-grotesque-latin-800-normal.woff2) format("woff2");font-weight:800;font-display:swap}
+@font-face{font-family:Syne;src:url(assets/fonts/syne-latin-800-normal.woff2) format("woff2");font-weight:800;font-display:swap}
+@font-face{font-family:"Instrument Serif";src:url(assets/fonts/instrument-serif-latin-400-italic.woff2) format("woff2");font-style:italic;font-display:swap}
+:root{--b0:0;--b1:0;--b2:0;--b3:0;--blow:0}
+body.msl{position:relative;overflow-x:hidden;color:var(--red)}
+.msl ::selection{background:var(--red);color:#fff}
+.msl .top{position:relative;z-index:5}
+.msl a{color:var(--red)}
+
+.sound{position:fixed;top:.9rem;right:clamp(.8rem,3vw,2rem);z-index:40;display:flex;gap:.45rem;flex-wrap:wrap;justify-content:flex-end}
+.sound button{font:600 .8rem/1 "Instrument Sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:#fff;
+  border:2px solid var(--ink);border-radius:99px;padding:.55rem .9rem;cursor:pointer;transition:transform .15s cubic-bezier(.3,1.6,.5,1)}
+.sound button:hover{transform:rotate(-3deg) scale(1.06)}
+.sound button[aria-pressed=true]{background:var(--red);border-color:var(--red);color:#fff}
+.sound button[hidden]{display:none}
+
+/* ----- le texte (EPK), écrit normalement, en rouge ----- */
+main.epk{position:relative;max-width:none;width:100%;margin:0;padding:0 clamp(1rem,5vw,4rem) 6rem}
+.logo{position:relative;z-index:30;display:block;width:fit-content;margin:.5rem 0 0;font-size:clamp(3rem,13vw,10rem)}
+.epk p.hint{color:var(--red);font-family:"Instrument Serif",serif;font-style:italic;font-size:clamp(1.2rem,2.2vw,1.7rem);line-height:1.2;margin:1.2rem 0 0;max-width:34ch}
+.epk p.lede{max-width:26ch;color:var(--red);font-family:Bricolage,sans-serif;font-weight:800;font-size:clamp(1.6rem,4.2vw,3.4rem);line-height:1.04;letter-spacing:-.02em;margin:clamp(3rem,9vw,7rem) 0 1.5rem}
+.sortie{font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.epk section{margin-top:clamp(3.5rem,9vw,7rem);max-width:64rem}
+.epk h2{font-family:Bricolage,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.92;font-size:clamp(2.4rem,7vw,5.5rem);margin-bottom:1.4rem}
+.epk h2 small{display:block;font-family:"Instrument Sans",sans-serif;font-weight:600;font-size:.9rem;letter-spacing:.1em;margin-bottom:.6rem}
+.epk h3{font-family:Syne,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;font-size:clamp(1.2rem,2.4vw,1.7rem);margin:2rem 0 .6rem}
+.epk p{font-size:clamp(1.05rem,1.5vw,1.25rem);line-height:1.5;margin-bottom:1rem;max-width:62ch}
+blockquote{font-family:"Instrument Serif",serif;font-style:italic;font-size:clamp(1.6rem,3.6vw,2.8rem);line-height:1.1;margin:2rem 0;max-width:24ch}
+blockquote cite{display:block;font-family:"Instrument Sans",sans-serif;font-style:normal;font-size:.95rem;margin-top:.7rem}
+.fiche,.liste{list-style:none;border-top:2px solid var(--red)}
+.fiche li,.liste li{border-bottom:2px solid var(--red);padding:.7rem .1rem;font-size:clamp(1rem,1.4vw,1.2rem);line-height:1.35}
+.fiche li{display:grid;grid-template-columns:9rem 1fr;gap:1rem}
+.fiche b{text-transform:uppercase;letter-spacing:.06em;font-size:.85em}
+.liste a{display:flex;justify-content:space-between;gap:1rem;text-decoration:none;font-weight:600;transition:padding .2s}
+.liste a:hover{padding-left:.8rem}
+.liste small{font-weight:400;opacity:.8;display:block}
+.an{display:grid;grid-template-columns:8rem 1fr;gap:.4rem 1.5rem;border-top:2px solid var(--red);padding:1rem 0}
+.an h4{font-family:Syne,sans-serif;font-weight:800;font-size:1.5rem;letter-spacing:-.03em}
+.an ul{list-style:none}.an li{margin-bottom:.4rem;line-height:1.35}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1rem 2rem}
+.cols ul{list-style:none}.cols li{margin-bottom:.25rem}
+.contact a{font-family:Bricolage,sans-serif;font-weight:800;font-size:clamp(1.3rem,3vw,2.2rem);letter-spacing:-.02em}
+.rows{list-style:none;border-top:2px solid var(--red)}
+.rows li{border-bottom:2px solid var(--red)}
+.rows a,.rows .r{display:grid;grid-template-columns:8rem 1fr auto;gap:.2rem 1.5rem;align-items:baseline;padding:1rem .1rem;text-decoration:none}
+.rows .dt{font-family:Syne,sans-serif;font-weight:800;text-transform:uppercase}
+.rows .ti{font-weight:600;font-size:1.2rem}.rows .ti small{display:block;font-weight:400;font-size:1rem}
+.soon{max-width:46ch}
+@media(max-width:640px){.fiche li,.an,.rows a,.rows .r{grid-template-columns:1fr}}
+
+/* gros bouton écouter : au-dessus des gifs */
+.listen{position:relative;z-index:30;display:inline-flex;flex-direction:column;align-items:flex-start;margin-top:2rem;background:var(--red);color:#fff!important;text-decoration:none;
+  padding:clamp(1rem,2.5vw,1.8rem) clamp(1.6rem,5vw,4rem);border-radius:999px;transition:transform .2s cubic-bezier(.3,1.6,.5,1),box-shadow .2s;box-shadow:0 .4rem 0 var(--ink)}
+.listen span{font-family:Bricolage,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:1;font-size:clamp(2.6rem,9vw,6.5rem)}
+.listen small{font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:clamp(.8rem,1.4vw,1rem);margin-top:.3rem}
+.listen:hover{transform:rotate(-2deg) scale(1.03);box-shadow:0 .6rem 0 var(--ink)}
+.listen:focus-visible{outline:4px solid var(--ink);outline-offset:4px}
+
+/* ----- les gifs, par-dessus le texte ----- */
+.gifs{position:absolute;left:0;top:0;width:100%;z-index:20;pointer-events:none;overflow:hidden}
+.item{position:absolute;mix-blend-mode:multiply;opacity:calc(1 - var(--blow));
+  transform:rotate(calc(var(--r,0deg) + var(--bx,var(--b0))*3deg)) scale(calc(1 + var(--bx,var(--b0))*.12))}
+.item.band0{--bx:var(--b0)}.item.band1{--bx:var(--b1)}.item.band2{--bx:var(--b2)}.item.band3{--bx:var(--b3)}
+.item{aspect-ratio:1;border-radius:4px;overflow:hidden}
+.item img,.item video{display:block;width:100%;height:100%;object-fit:cover}
+.item.gen{aspect-ratio:1;border-radius:50%;background:conic-gradient(from var(--a,0deg),#fff,var(--red),#fff);animation:spin 5s linear infinite}
+@property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+@keyframes spin{to{--a:360deg}}
+@media (prefers-reduced-motion:reduce){.item.gen{animation:none}.item{transform:rotate(var(--r,0deg))}}
+</style>
+</head>
+<body class="msl">
+<header class="top"><a href="menu.html"><img src="assets/poster.png" alt=""><span>Menu</span></a></header>
+<div class="sound">
+  <button id="bt-hide" type="button" aria-pressed="false">◐ Texte</button>
+  <button id="bt-track" type="button" aria-pressed="false" hidden>♪ Son</button>
+  <button id="bt-mic" type="button" aria-pressed="false">● Micro</button>
+</div>
+<div class="gifs" id="gifs" aria-hidden="true"></div>
+
+<main class="epk">
+<h1 class="word logo">My single lise</h1>
+<p class="hint">Souffle dans le micro (bouton « Micro ») : les images s’envolent et le texte se lit.</p>
+
+<a class="listen" href="https://open.spotify.com/intl-fr/album/0T2wqNDPUyuQ7nday4aDuG" target="_blank" rel="noopener"><span>▶ Écouter</span><small>l’album sur Spotify</small></a>
+
+<p class="lede">Lise Me Alone, nouvel EP sept titres. Giga vitaminés, où Lise tire à vue et flingue tout ce qui bouge : patriarcat, racisme, sexisme en prennent pour leur grade et plein les oreilles !</p>
+<blockquote>Tu crois que je veux la guerre<br>Mais c’est tout le contraire<br>Je ne veux que de l’amour</blockquote>
+<p class="sortie">Sortie le 29.04.2024 · Électro · Pop · Féministe</p>
+
+<section id="ep">
+  <h2><small>01 — L’EP</small>Lise<br>me<br>alone</h2>
+  <p>Portée par le courage des femmes qui s’expriment sur le sujet des violences masculines, My Single Lise enregistre Lise Me Alone. Une main tendue et 7 cris de rage, à grand renfort de synthés pour faire danser les filles (que les filles vraiment ?)…</p>
+  <p>Album survolté, groovy, féministe et révolutionnaire. Réalisé en collaboration avec My Single Lise &amp; Marshall Applewhite, figure de la scène électro de Détroit. Il se décline en vidéo à l’esthétique pop et minimale, qui prennent une dimension hypnotique sur scène.</p>
+  <p>À grands coups de synthés énervés, Lise distille ses mots en Lorelei 2.0 et embarque dans la danse quiconque ne rit pas jaune.</p>
+  <h3>Fiche projet</h3>
+  <ul class="fiche">
+    <li><b>Artiste</b><span>My Single Lise</span></li>
+    <li><b>Titre</b><span>Lise Me Alone</span></li>
+    <li><b>Format</b><span>EP — 7 titres</span></li>
+    <li><b>Genre</b><span>Électronique · Pop · Féministe</span></li>
+    <li><b>Sortie</b><span>29 avril 2024</span></li>
+    <li><b>Production</b><span>My Single Lise &amp; Marshall Applewhite</span></li>
+    <li><b>Booking</b><span>Château Perdu — <a href="mailto:chateauperdu@gmail.com">chateauperdu@gmail.com</a></span></li>
+  </ul>
+</section>
+
+<section id="dates">
+  <h2><small>Concerts</small>Dates</h2>
+  <ul class="rows" id="dates-l"></ul>
+  <p class="soon" id="dates-e" hidden>Pas de date annoncée pour l’instant. Reviens vite.</p>
+</section>
+
+<section id="actus">
+  <h2><small>Nouvelles</small>Actus</h2>
+  <ul class="rows" id="actus-l"></ul>
+  <p class="soon" id="actus-e" hidden>Les prochaines nouvelles apparaîtront ici.</p>
+</section>
+
+<section id="bio">
+  <h2><small>02 — Biographie</small>Bio</h2>
+  <p>Pianiste, chanteuse, compositrice, codeuse, mixeuse et productrice — Lise Chemla est une artiste polymorphe dont le parcours traverse les genres et les formats depuis plus de quinze ans.</p>
+  <p>Elle publie son premier album au piano (Cinq7 / Wagram, 2011) sous le regard bienveillant de Dominique A. De sa collaboration avec Mathias Malzieu naît un EP live sur son label (Eggmann Records, 2015). Lauréate du concours des Inrocks Gate Up (2017), elle concentre ses explorations musicales autour des sonorités électroniques tout en collaborant avec Dionysos, Martin Solveig, Cali ou encore Marshall Applewhite (scène électro de Détroit).</p>
+  <p>Avec Lise Me Alone, elle signe un tournant électro radical, puissant et libérateur. Une musique pour celles et ceux qui ont envie de crier fort, et de danser encore plus fort.</p>
+  <p>En 2026, elle prépare une tournée ciné-chanson Chœur d’Oiseaux au Forum des Images avec Gommette Production, la sortie d’un livre-disque Lise et la Musique, et la création d’un album de pop codée.</p>
+  <blockquote>En costume à paillettes, Lise s’entoure de claviers, compagnon d’une route qu’elle souhaite pop, souple et bienveillante. Ses morceaux deviennent des petits éclairs de lumière dans votre quotidien, une invitation à la danse et à la liberté.<cite>— Les Inrockuptibles</cite></blockquote>
+  <div class="cols">
+    <div><h3>Distinctions</h3><ul><li>Lauréate Gate Up — Les Inrockuptibles</li><li>Lauréate « Oh Taquet » — Chantier des Francos / Arcadi</li><li>Lauréate ADAMI — Printemps de Bourges / Francofolies</li></ul></div>
+    <div><h3>Presse</h3><ul><li>Les Inrockuptibles</li><li>Télérama</li><li>France Culture · France Inter</li><li>Modzick</li></ul></div>
+    <div><h3>Collaborations</h3><ul><li>Marshall Applewhite (Detroit)</li><li>Martin Solveig</li><li>Dionysos · Cali</li><li>Mathias Malzieu</li><li>Zaz · Dominique A</li></ul></div>
+  </div>
+</section>
+
+<section id="cv">
+  <h2><small>03 — Parcours</small>Parcours</h2>
+  <div class="an"><h4>À venir 2026</h4><ul>
+    <li>Tournée ciné-chanson Chœur d’Oiseaux — Forum des Images, Gommette Production (24.02 → 30.05.2026, reprise automne)</li>
+    <li>Sortie livre-disque Lise et la Musique</li><li>Création album de pop codée</li></ul></div>
+  <div class="an"><h4>2025</h4><ul>
+    <li>Création ciné-chanson Chœur d’Oiseaux — Festival Tout Petit Cinéma, Forum des Images</li>
+    <li>Création Piano Peinture — développement logiciel sur TD</li>
+    <li>Musique pub — Deliveroo, Hiscox / Birbrain</li>
+    <li>Musicienne — Les Caprices de Marianne, mise en scène Philippe Calvario</li>
+    <li>Ateliers création chansons — École Pierre Foncin, Paris 20e</li></ul></div>
+  <div class="an"><h4>2024</h4><ul>
+    <li>Enregistrement &amp; sortie EP Lise Me Alone</li>
+    <li>Tournée française — Les Tontons Tourneurs</li>
+    <li>Création Barbara Mémoires Interrompus avec Jil Caplan — mise en scène Ph. Calvario &amp; J.-C. Mouveaux</li></ul></div>
+  <div class="an"><h4>2022 — 2023</h4><ul>
+    <li>Création &amp; tournée Lise et les animaux rigolos — Les Tontons Tourneurs</li>
+    <li>50 comptines Pitch et Maïco — collaboration avec Martin Solveig, Alma Studio</li>
+    <li>Sortie Lise et les animaux rigolos — réalisé par Martin Solveig pour Alma Studio app</li></ul></div>
+  <div class="an"><h4>2011 — 2021</h4><ul>
+    <li>Album Lise — Cinq7/Wagram, prod. Dominique A</li>
+    <li>EP La Fille que je n’embrasse pas avec Mathias Malzieu — Eggman Records</li>
+    <li>Ciné-chanson Et si j’étais — Forum des Images / Ciné Junior, création &amp; tournée</li>
+    <li>Écriture pour Zaz — Si c’était à refaire / Warner</li>
+    <li>Tournées export — Europe de l’est, USA, Amérique du Sud, Mexique</li>
+    <li>Musicienne scène pour Dionysos, Martin Solveig, Cali</li>
+    <li>Musicienne studio pour Dionysos, Alb, Roger Greenawalt, Marshall Applewhite, Guillaume Léglise</li>
+    <li>Musique des films Bootyful &amp; Cœur (F. Barbier)</li>
+    <li>Lecture musicale — Poétesses de la Grande Guerre, création &amp; tournée</li></ul></div>
+  <div class="cols" style="margin-top:2rem">
+    <div><h3>Instruments</h3><ul><li>Piano</li><li>Guitare</li><li>Basse</li><li>Tenori-on</li></ul></div>
+    <div><h3>Logiciels</h3><ul><li>Ableton Live</li><li>TD (TouchDesigner)</li><li>Strudel</li><li>QLab</li><li>Musescore</li><li>OBS Studio</li></ul></div>
+    <div><h3>Partenaires &amp; scènes</h3><ul><li>Forum des Images — Paris</li><li>Les Francofolies</li><li>Printemps de Bourges</li><li>ADAMI</li><li>Alliances Françaises</li><li>Gommette Production</li></ul></div>
+  </div>
+</section>
+
+<section id="videos">
+  <h2><small>04 — Vidéos</small>Vidéos</h2>
+  <p>Les titres de l’EP en vidéo — une esthétique pop et minimale qui prend une dimension hypnotique sur scène.</p>
+  <ul class="liste">
+    <li><a href="https://www.youtube.com/watch?v=A7rS7D2Lr28" target="_blank" rel="noopener"><span>Pull Mohair<small>Lise Me Alone — EP</small></span><span>→</span></a></li>
+    <li><a href="https://www.youtube.com/watch?v=0q7sr60NcC8" target="_blank" rel="noopener"><span>Partout Chez Nous<small>Lise Me Alone — EP</small></span><span>→</span></a></li>
+    <li><a href="https://www.youtube.com/watch?v=d0UIuF1LQTs" target="_blank" rel="noopener"><span>Lise Me Alone<small>Lise Me Alone — EP</small></span><span>→</span></a></li>
+    <li><a href="https://www.youtube.com/watch?v=IvTiy2iRhbI" target="_blank" rel="noopener"><span>Fanfaron<small>Lise Me Alone — EP</small></span><span>→</span></a></li>
+    <li><a href="https://youtu.be/k5Veazg0Zuc" target="_blank" rel="noopener"><span>Ton Avis<small>Lise Me Alone — EP</small></span><span>→</span></a></li>
+    <li><a href="https://youtu.be/20exFt21NFI" target="_blank" rel="noopener"><span>Plus Gentil<small>Lise Me Alone — EP</small></span><span>→</span></a></li>
+    <li><a href="https://www.youtube.com/watch?v=r7ZdFImTSeo" target="_blank" rel="noopener"><span>Teaser live<small>My Single Lise — scène</small></span><span>→</span></a></li>
+  </ul>
+</section>
+
+<section id="liens">
+  <h2><small>05 — Écouter</small>Écouter</h2>
+  <ul class="liste">
+    <li><a href="https://soundcloud.com/mysinglelise/sets/lise-me-alone" target="_blank" rel="noopener"><span>SoundCloud</span><span>→</span></a></li>
+    <li><a href="https://open.spotify.com/intl-fr/album/0T2wqNDPUyuQ7nday4aDuG" target="_blank" rel="noopener"><span>Spotify</span><span>→</span></a></li>
+    <li><a href="https://music.apple.com/fr/album/lise-me-alone/1733601996" target="_blank" rel="noopener"><span>Apple Music</span><span>→</span></a></li>
+    <li><a href="https://www.youtube.com/@MySingleLise" target="_blank" rel="noopener"><span>YouTube</span><span>→</span></a></li>
+  </ul>
+</section>
+
+<section id="contact" class="contact">
+  <h2><small>06 — Contact</small>Contact</h2>
+  <h3>Booking &amp; management — Château Perdu</h3>
+  <p><a href="mailto:chateauperdu@gmail.com">chateauperdu@gmail.com</a></p>
+  <h3>Contact artiste</h3>
+  <p><a href="mailto:mysinglelise@gmail.com">mysinglelise@gmail.com</a></p>
+  <p><a href="https://www.instagram.com/my_single_lise/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/MySingleLise/" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.youtube.com/@MySingleLise" target="_blank" rel="noopener">YouTube</a></p>
+</section>
+</main>
+
+<script>
+/* ==========  À MODIFIER ICI : dates et actus  ========== */
+var DATES=[
+  // {date:"12 déc. 2026", titre:"Nom de la salle", lieu:"Ville", lien:"https://..."},
+];
+var ACTUS=[
+  // {date:"Oct. 2026", titre:"Nouveau clip", texte:"Une phrase.", lien:"https://..."},
+];
+/* Si GitHub ne répond pas, on utilise cette liste (noms des fichiers de assets/loops). */
+var LOOPS=["vinyle-rouge.mp4","masque-your.mp4","coeur.mp4","pull-mohair.mp4","paillettes.mp4","rose.jpg","poing.jpg"];
+
+function fill(list,empty,items,isNews){
+  var ul=document.getElementById(list);
+  if(!items.length){document.getElementById(empty).hidden=false;return;}
+  items.forEach(function(x){
+    var li=document.createElement('li'),el=document.createElement(x.lien?'a':'div');
+    if(x.lien){el.href=x.lien;el.target='_blank';el.rel='noopener';}else el.className='r';
+    var sub=isNews?x.texte:x.lieu;
+    el.innerHTML='<span class="dt"></span><span class="ti"></span><span class="go"></span>';
+    el.children[0].textContent=x.date||'';el.children[1].textContent=x.titre||'';
+    if(sub){var s=document.createElement('small');s.textContent=sub;el.children[1].appendChild(s);}
+    if(x.lien)el.children[2].textContent='→';
+    li.appendChild(el);ul.appendChild(li);
+  });
+}
+fill('dates-l','dates-e',DATES,false);fill('actus-l','actus-e',ACTUS,true);
+
+/* ---------- les gifs : éparpillés par-dessus toute la page ---------- */
+(function(){
+  var layer=document.getElementById('gifs'),media=[],els=[],seed=5;
+  function rnd(){seed|=0;seed=seed+0x6D2B79F5|0;var t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;}
+  function R(a,b){return a+rnd()*(b-a);}
+  var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){var p=e.target.play();if(p&&p.catch)p.catch(function(){});}else e.target.pause();});},{rootMargin:'200px'}):null;
+  function mk(f){
+    var d=document.createElement('div');d.className='item';
+    if(f==='gen'){d.classList.add('gen');return d;}
+    var u='assets/loops/'+encodeURIComponent(f);
+    if(/\.(mp4|webm|mov)$/i.test(f)){
+      var v=document.createElement('video');v.src=u;v.muted=true;v.loop=true;v.playsInline=true;v.setAttribute('playsinline','');v.preload='metadata';
+      d.appendChild(v);if(io)io.observe(v);else v.play();
+    }else{var im=new Image();im.src=u;im.alt='';im.loading='lazy';d.appendChild(im);}
+    return d;
+  }
+  function layout(){
+    seed=Math.floor(Math.random()*1e6)||5;
+    els.forEach(function(e){e.remove();});els=[];
+    var W=document.documentElement.clientWidth,H=document.body.scrollHeight,mobile=W<700;
+    layer.style.height=H+'px';
+    // quadrillage serré + décalages : les gifs recouvrent presque toute la page
+    var C=mobile?2:4,cw=W/C,ch=cw*.92,rows=Math.ceil(H/ch)+1,N=rows*C;
+    var pool=[];while(pool.length<N)pool=pool.concat(media.slice().sort(function(){return rnd()-.5;}));
+    var k=0;
+    for(var r=0;r<rows;r++)for(var c=0;c<C;c++){
+      var d=mk(pool[k]),w=cw*R(1.05,1.55);
+      d.style.width=w+'px';
+      d.style.left=(c*cw+R(-.35,.15)*cw)+'px';
+      d.style.top=(r*ch+R(-.3,.15)*ch)+'px';
+      d.style.setProperty('--r',R(-12,12).toFixed(1)+'deg');
+      d.classList.add('band'+(k%4));d.style.zIndex=Math.floor(R(1,6));
+      layer.appendChild(d);els.push(d);k++;
+    }
+  }
+  function go(files){media=files.length?files:['gen','gen','gen','gen'];layout();}
+  var repo,m=location.hostname.match(/^(.+)\.github\.io$/);
+  if(m){var seg=location.pathname.split('/')[1]||'';repo=m[1]+'/'+((seg&&!/\.html?$/.test(seg))?seg:location.hostname);}
+  var OK=/\.(gif|mp4|webm|mov|webp|png|jpe?g)$/i;
+  function fallback(){go(LOOPS.filter(function(f){return OK.test(f);}));}
+  function start(){
+    if(!repo)fallback();
+    else fetch('https://api.github.com/repos/'+repo+'/contents/assets/loops').then(function(r){if(!r.ok)throw 0;return r.json();})
+      .then(function(it){var fs=it.filter(function(x){return x.type==='file'&&OK.test(x.name);}).map(function(x){return x.name;});if(fs.length)go(fs);else fallback();})
+      .catch(fallback);
+  }
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(start);else addEventListener('load',start);
+  var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){if(media.length)layout();},300);});
+})();
+
+/* ---------- audio-réactivité (uniquement les images) ----------
+   Sans son : un battement discret simulé. Avec le son (morceau ou micro) : vraies fréquences,
+   chaque image sur une bande différente (graves → aigus).
+   Avec le micro : si tu SOUFFLES dedans (bruit large, sans note), les images s'effacent pour laisser lire le texte. */
+(function(){
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var AC,an,data,src,mode='idle',audioEl,stream,root=document.documentElement,binHz=1;
+  var SOUFFLE_SEUIL=0.30;   /* ← plus petit = plus sensible au souffle */
+  function ensure(){
+    if(!AC){AC=new (window.AudioContext||window.webkitAudioContext)();an=AC.createAnalyser();an.fftSize=512;an.smoothingTimeConstant=.6;
+      data=new Uint8Array(an.frequencyBinCount);binHz=AC.sampleRate/an.fftSize;}
+    if(AC.state==='suspended')AC.resume();
+  }
+  var bt=document.getElementById('bt-track'),bm=document.getElementById('bt-mic'),bh=document.getElementById('bt-hide');
+  var manual=false;
+  bh.onclick=function(){manual=!manual;bh.setAttribute('aria-pressed',manual);};
+  addEventListener('keydown',function(e){if(e.code==='Space'&&!/button|a/i.test(e.target.tagName)){manual=true;bh.setAttribute('aria-pressed','true');e.preventDefault();}});
+  addEventListener('keyup',function(e){if(e.code==='Space'){manual=false;bh.setAttribute('aria-pressed','false');}});
+  function stop(){
+    if(audioEl)audioEl.pause();
+    if(stream){stream.getTracks().forEach(function(t){t.stop();});stream=null;}
+    if(src){try{src.disconnect();}catch(e){}src=null;}
+    mode='idle';bt.setAttribute('aria-pressed','false');bm.setAttribute('aria-pressed','false');
+  }
+  var TRACK='assets/audio/mysinglelise.mp3';
+  fetch(TRACK,{method:'HEAD'}).then(function(r){if(r.ok)bt.hidden=false;}).catch(function(){});
+  bt.onclick=function(){
+    if(mode==='track'){stop();return;}
+    stop();ensure();
+    if(!audioEl){audioEl=new Audio(TRACK);audioEl.loop=true;audioEl._node=AC.createMediaElementSource(audioEl);}
+    src=audioEl._node;src.connect(an);an.connect(AC.destination);
+    audioEl.play().then(function(){mode='track';bt.setAttribute('aria-pressed','true');}).catch(function(){});
+  };
+  bm.onclick=function(){
+    if(mode==='mic'){stop();return;}
+    stop();ensure();
+    if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){bm.hidden=true;return;}
+    navigator.mediaDevices.getUserMedia({audio:{echoCancellation:false,noiseSuppression:false,autoGainControl:false}}).then(function(s){
+      stream=s;src=AC.createMediaStreamSource(s);src.connect(an);try{an.disconnect(AC.destination);}catch(e){}
+      mode='mic';bm.setAttribute('aria-pressed','true');
+    }).catch(function(){});
+  };
+  function band(lo,hi){var a=Math.max(1,Math.round(lo/binHz)),b=Math.min(data.length-1,Math.round(hi/binHz)),s=0;for(var i=a;i<=b;i++)s+=data[i];return s/(b-a+1)/255;}
+  var HZ=[[30,200],[200,700],[700,2800],[2800,9000]],B=[0,0,0,0],blow=0,t0=performance.now();
+  function frame(now){
+    var t=(now-t0)/1000,live=mode!=='idle',k,target=0;
+    if(live){
+      an.getByteFrequencyData(data);
+      for(k=0;k<4;k++){var v=Math.min(1,band(HZ[k][0],HZ[k][1])*(1+k*.6));B[k]+=(v-B[k])*(v>B[k]?.6:.15);}
+      if(mode==='mic'){
+        // souffle = beaucoup d'énergie, répartie sur tout le grave/médium sans pic (platitude élevée)
+        var a=Math.round(80/binHz),b=Math.round(2000/binHz),sum=0,lg=0,n=0;
+        for(var i=a;i<=b;i++){var m=data[i]+1;sum+=m;lg+=Math.log(m);n++;}
+        var mean=sum/n,flat=Math.exp(lg/n)/mean,lowAvg=band(80,600);
+        if(lowAvg>SOUFFLE_SEUIL&&flat>.62)target=1;
+      }
+    }else{
+      var ph=(t*1.9)%1,kk=Math.pow(1-ph,3)*.5;
+      B[0]+=(kk-B[0])*.3;
+      for(k=1;k<4;k++){var tt=(t*1.9*(k+1)/2)%1;B[k]+=(Math.pow(1-tt,4)*.18*(k===2?1:.6)-B[k])*.25;}
+    }
+    if(manual)target=1;
+    blow+=(target-blow)*(target>blow?.06:.03);
+    for(k=0;k<4;k++)root.style.setProperty('--b'+k,(reduce?0:B[k]).toFixed(3));
+    root.style.setProperty('--blow',blow.toFixed(3));
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+  document.addEventListener('visibilitychange',function(){if(mode==='track'){if(document.hidden)audioEl.pause();else audioEl.play();}});
+})();
+</script>
+</body>
+</html>
